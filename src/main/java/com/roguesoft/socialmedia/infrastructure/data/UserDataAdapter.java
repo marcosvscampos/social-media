@@ -1,12 +1,12 @@
 package com.roguesoft.socialmedia.infrastructure.data;
 
 import com.roguesoft.socialmedia.domain.entity.User;
+import com.roguesoft.socialmedia.domain.entity.search.Filter;
+import com.roguesoft.socialmedia.domain.entity.search.UserFilter;
 import com.roguesoft.socialmedia.domain.ports.DatabasePort;
 import com.roguesoft.socialmedia.infrastructure.mapper.DataMapper;
-import com.roguesoft.socialmedia.infrastructure.mapper.UserMapper;
 import com.roguesoft.socialmedia.infrastructure.model.UserModel;
 import com.roguesoft.socialmedia.infrastructure.repository.UserRepository;
-import com.roguesoft.socialmedia.infrastructure.repository.mongo.MongoUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -35,7 +35,7 @@ public class UserDataAdapter implements DatabasePort<User> {
     }
 
     @Override
-    public List<User> findAll() {
+    public List<User> findAllByFilters(final Filter filter) {
         return null;
     }
 

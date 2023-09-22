@@ -17,8 +17,8 @@ public class FriendshipModel {
     @Id
     private String id;
 
-    private String user;
+    private String userId;
 
-    private String friend;
+    private String friendId;
 
 }

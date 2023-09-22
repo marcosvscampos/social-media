@@ -1,5 +1,7 @@
 package com.roguesoft.socialmedia.domain.ports;
 
+import com.roguesoft.socialmedia.domain.entity.search.Filter;
+
 import java.util.List;
 
 public interface DatabasePort<T> {
@@ -8,6 +10,6 @@ public interface DatabasePort<T> {
 
     T findById(String id);
 
-    List<T> findAll();
+    List<T> findAllByFilters(Filter filter);
 
 }

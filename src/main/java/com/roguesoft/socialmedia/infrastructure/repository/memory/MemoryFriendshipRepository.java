@@ -5,6 +5,7 @@ import com.roguesoft.socialmedia.infrastructure.repository.FriendshipRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -27,5 +28,10 @@ public class MemoryFriendshipRepository implements FriendshipRepository {
             return Optional.of(model);
         }
         return Optional.empty();
+    }
+
+    @Override
+    public List<FriendshipModel> findByUserId(String userId) {
+        return null;
     }
 }

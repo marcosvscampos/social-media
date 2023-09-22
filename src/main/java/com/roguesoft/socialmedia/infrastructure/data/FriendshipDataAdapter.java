@@ -1,6 +1,8 @@
 package com.roguesoft.socialmedia.infrastructure.data;
 
 import com.roguesoft.socialmedia.domain.entity.Friendship;
+import com.roguesoft.socialmedia.domain.entity.search.Filter;
+import com.roguesoft.socialmedia.domain.entity.search.FriendshipFilter;
 import com.roguesoft.socialmedia.domain.ports.DatabasePort;
 import com.roguesoft.socialmedia.infrastructure.mapper.DataMapper;
 import com.roguesoft.socialmedia.infrastructure.model.FriendshipModel;
@@ -34,7 +36,10 @@ public class FriendshipDataAdapter implements DatabasePort<Friendship> {
     }
 
     @Override
-    public List<Friendship> findAll() {
-        return null;
+    public List<Friendship> findAllByFilters(Filter filter) {
+        FriendshipFilter friendshipFilter = (FriendshipFilter) filter;
+        List<FriendshipModel> friends = repository.findByUserId(friendshipFilter.getUserId());
+        return friends.stream().map(dataMapper::toEntity).toList();
     }
+
 }
