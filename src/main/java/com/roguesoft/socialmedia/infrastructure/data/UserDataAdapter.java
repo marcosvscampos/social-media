@@ -36,7 +36,8 @@ public class UserDataAdapter implements DatabasePort<User> {
 
     @Override
     public List<User> findAllByFilters(final Filter filter) {
-        return null;
+        return repository.findAll().stream()
+                .map(dataMapper::toEntity).toList();
     }
 
 }
