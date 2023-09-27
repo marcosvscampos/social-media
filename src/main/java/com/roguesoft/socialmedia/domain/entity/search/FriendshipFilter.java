@@ -1,15 +1,18 @@
 package com.roguesoft.socialmedia.domain.entity.search;
 
-import lombok.Getter;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
-@Getter
+@EqualsAndHashCode(callSuper = true)
+@Data
+@NoArgsConstructor
 public class FriendshipFilter extends Filter {
 
-    private final String userId;
+    private String userId;
 
     public FriendshipFilter(final String userId) {
         super();
         this.userId = userId;
     }
-
 }

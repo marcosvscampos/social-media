@@ -1,20 +1,18 @@
 package com.roguesoft.socialmedia.domain.entity.search;
 
-import lombok.Getter;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
-@Getter
+@EqualsAndHashCode(callSuper = true)
+@Data
+@NoArgsConstructor
 public class UserFilter extends Filter {
 
-    private final String name;
-
-    public UserFilter(){
-        super();
-        this.name = "";
-    }
+    private String name;
 
     public UserFilter(final String name){
         super();
         this.name = name;
     }
-
 }

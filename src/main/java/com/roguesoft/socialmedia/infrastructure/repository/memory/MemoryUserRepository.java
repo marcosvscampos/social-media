@@ -1,5 +1,6 @@
 package com.roguesoft.socialmedia.infrastructure.repository.memory;
 
+import com.roguesoft.socialmedia.domain.entity.search.Filter;
 import com.roguesoft.socialmedia.infrastructure.model.UserModel;
 import com.roguesoft.socialmedia.infrastructure.repository.UserRepository;
 import org.springframework.stereotype.Repository;
@@ -30,8 +31,4 @@ public class MemoryUserRepository implements UserRepository {
         return Optional.empty();
     }
 
-    @Override
-    public List<UserModel> findAll() {
-        return null;
-    }
 }

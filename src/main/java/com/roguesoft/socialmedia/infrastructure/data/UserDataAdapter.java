@@ -6,6 +6,7 @@ import com.roguesoft.socialmedia.domain.entity.search.UserFilter;
 import com.roguesoft.socialmedia.domain.ports.DatabasePort;
 import com.roguesoft.socialmedia.infrastructure.mapper.DataMapper;
 import com.roguesoft.socialmedia.infrastructure.model.UserModel;
+import com.roguesoft.socialmedia.infrastructure.repository.UserQueryRepository;
 import com.roguesoft.socialmedia.infrastructure.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,6 +20,8 @@ public class UserDataAdapter implements DatabasePort<User> {
 
     @Qualifier("mongoUserRepository")
     private final UserRepository repository;
+
+    private final UserQueryRepository queryRepository;
 
     private final DataMapper<User, UserModel> dataMapper;
 
@@ -36,7 +39,7 @@ public class UserDataAdapter implements DatabasePort<User> {
 
     @Override
     public List<User> findAllByFilters(final Filter filter) {
-        return repository.findAll().stream()
+        return queryRepository.findAllByFilters(filter).stream()
                 .map(dataMapper::toEntity).toList();
     }
 

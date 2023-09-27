@@ -61,8 +61,8 @@ public class UserController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<UserDTO>> getAllUsers(){
-        List<UserDTO> response = getAllUsers.execute(new UserFilter());
+    public ResponseEntity<List<UserDTO>> getAllUsers(final UserFilter filter){
+        List<UserDTO> response = getAllUsers.execute(filter);
 
         if(response.isEmpty()){
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
