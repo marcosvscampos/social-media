@@ -11,8 +11,11 @@ public class UserFilter extends Filter {
 
     private String name;
 
-    public UserFilter(final String name){
+    private String username;
+
+    public UserFilter(final String name, final String username){
         super();
         this.name = name;
+        this.username = username;
     }
 }
