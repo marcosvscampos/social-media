@@ -21,4 +21,6 @@ public class UserModel {
 
     private String username;
 
+    private String photo;
+
 }
