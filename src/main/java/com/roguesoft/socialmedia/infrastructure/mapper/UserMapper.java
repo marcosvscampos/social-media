@@ -11,7 +11,7 @@ public class UserMapper extends DataMapper<User, UserModel> {
 
     public UserMapper(final ModelMapper mapper){
         super(mapper);
-        TypeMap<User, UserModel> typeMapToModel = mapper.createTypeMap(User.class, UserModel.class);
+        TypeMap<User, UserModel> typeMapToModel = super.getMapper().createTypeMap(User.class, UserModel.class);
         typeMapToModel.addMapping(User::getId, UserModel::setId);
     }
 

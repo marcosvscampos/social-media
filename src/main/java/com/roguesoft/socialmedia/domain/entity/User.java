@@ -19,6 +19,8 @@ public class User {
 
     private String name;
 
+    private String username;
+
     public String getId(){
         if(Objects.isNull(this.id)){
             this.generateId(new MD5HashCreator());
